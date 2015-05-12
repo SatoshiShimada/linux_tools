@@ -23,6 +23,6 @@ if [ -f "${distfile}" ] ; then
 	if [ "$buf" == "Yes" -o "$buf" == "yes" -o "$buf" == "y" -o "$buf" == "Y" ] ; then
 		mv "$op" "$srcfile" "$distfile"
 	fi
+else
+	mv "$op" "$srcfile" "$distfile"
 fi
-
-mv "$op" "$srcfile" "$distfile"

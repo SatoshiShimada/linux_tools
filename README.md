@@ -12,13 +12,19 @@ shellscript
 
 Download or make clone.
 
+`cd ~/Downloads/`
 `git clone https://github/SatoshiShimada/linux_tools.git`
 
 following command:
 
-`ln -s ./linux_tools/cp_pack.sh /bin/cp2`
+`cd ./linux_tools/`
+`cp ./cp_pack.sh /bin/`
+`mv ./mv_pack.sh /bin`
 
-`ln -s ./linux_tools/mv_pack.sh /bin/mv2`
+`echo "alias cp=\"/bin/cp_pack.sh\"" >> $HOME/.bashrc`
+`echo "alias mv=\"/bin/mv_pack.sh\"" >> $HOME/.bashrc`
+
+Relogin to shell.
 
 ## Author
 [Satoshi Shimada](http://lin18.dip.jp)
