@@ -15,7 +15,9 @@ Download or make clone.
 `git clone https://github/SatoshiShimada/linux_tools.git`
 
 following command:
+
 `ln -s ./linux_tools/cp_pack.sh /bin/cp2`
+
 `ln -s ./linux_tools/mv_pack.sh /bin/mv2`
 
 ## Author
