@@ -1,17 +1,28 @@
 #/bin/sh
 
-if [ "${1}" == "" -o "R{2}" == "" ] ; then
+op=""
+
+if [ "${1}" == "-f" ] ; then
+	op="-f"
+	srcfile=$2
+	distfile=$3
+else
+	srcfile=$1
+	distfile=$2
+fi
+
+if [ "${srcfile}" == "" -o "${distfile}" == "" ] ; then
 	echo "Usage: mv scrfile dstfile"
 fi
 
-if [ -f "${2}" ] ; then
+if [ -f "${distfile}" ] ; then
 	echo "move distnation file is exist!"
-	echo -n "Update ${2}? Yes/no >"
+	echo -n "Update ${distfile}? Yes/no >"
 	read buf
 
 	if [ "$buf" == "Yes" -o "$buf" == "yes" -o "$buf" == "y" -o "$buf" == "Y" ] ; then
-		mv "$1" "$2"
+		mv "$op" "$srcfile" "$distfile"
 	fi
 fi
 
-mv "$1" "$2"
+mv "$op" "$srcfile" "$distfile"

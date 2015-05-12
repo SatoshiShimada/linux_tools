@@ -1,17 +1,28 @@
 #/bin/sh
 
-if [ "${1}" == "" -o "R{2}" == "" ] ; then
+op=""
+
+if [ "${1}" == "-r" ] ; then
+	op="-r"
+	srcfile=$2
+	distfile=$3
+else
+	srcfile=$1
+	distfile=$2
+fi
+
+if [ "${srcfile}" == "" -o "${distfile}" == "" ] ; then
 	echo "Usage: cp scrfile dstfile"
 fi
 
-if [ -f "${2}" ] ; then
+if [ -f "${distfile}" ] ; then
 	echo "copy distnation file is exist!"
-	echo -n "Update ${2}? Yes/no >"
+	echo -n "Update ${distfile}? Yes/no >"
 	read buf
 
 	if [ "$buf" == "Yes" -o "$buf" == "yes" -o "$buf" == "y" -o "$buf" == "Y" ] ; then
-		cp "$1" "$2"
+		cp "$op" "$srcfile" "$distfile"
 	fi
 fi
 
-cp "$1" "$2"
+cp "$op" "$srcfile" "$distfile"
