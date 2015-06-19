@@ -13,18 +13,27 @@ shellscript
 Download or make clone.
 
 `cd ~/Downloads/`
+
 `git clone https://github/SatoshiShimada/linux_tools.git`
 
-following command:
+Following command:
 
 `cd ./linux_tools/`
+
 `cp ./cp_pack.sh /bin/`
+
 `mv ./mv_pack.sh /bin`
 
+If only using BASH
+
 `echo "alias cp=\"/bin/cp_pack.sh\"" >> $HOME/.bashrc`
+
 `echo "alias mv=\"/bin/mv_pack.sh\"" >> $HOME/.bashrc`
 
 Relogin to shell.
 
+Finish!
+
 ## Author
-[Satoshi Shimada](http://lin18.dip.jp)
+
+[Satoshi Shimada](https://satoshishimada.github.io/)
