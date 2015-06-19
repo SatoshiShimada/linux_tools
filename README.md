@@ -22,9 +22,9 @@ Following command:
 
 `cp ./cp_pack.sh /bin/`
 
-`mv ./mv_pack.sh /bin`
+`mv ./mv_pack.sh /bin/`
 
-If only using BASH
+Only if using BASH
 
 `echo "alias cp=\"/bin/cp_pack.sh\"" >> $HOME/.bashrc`
 
