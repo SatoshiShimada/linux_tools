@@ -2,8 +2,10 @@
 
 # Convert NewLine to '\n' (linux) from '\r\n' (dos)
 
-if ${2} == ${3}; then
+if [ ${1} = ${2} ] ; then
 	echo "bad file name"
 	exit 0
+fi
 
-sed -e 's/\r\n/\n/g' < ${2} > ${3}
+sed -e 's/\r\n/\n/g' <${1} >${2}
+
