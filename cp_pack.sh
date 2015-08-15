@@ -13,6 +13,7 @@ fi
 
 if [ "${srcfile}" == "" -o "${distfile}" == "" ] ; then
 	echo "Usage: cp scrfile dstfile"
+	exit
 fi
 
 if [ -f "${distfile}" ] ; then # file is exist
