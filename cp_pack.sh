@@ -1,29 +1,35 @@
 #/bin/sh
 
-op=""
+op = ""
 
-if [ "${1}" == "-r" ] ; then
+copy() {
+if [[ -n ${op} ]];
+	then cp "${op}" "${srcfile}" "${distfile}";
+	else cp "${srcfile}" "${distfile}";
+fi
+}
+
+if [[ ${1} == "-r" ]] ; then
 	op="-r"
-	srcfile=${2}
-	distfile=${3}
-else
-	srcfile=${1}
-	distfile=${2}
+	shift
 fi
 
-if [ "${srcfile}" == "" -o "${distfile}" == "" ] ; then
+srcfile=${1}
+distfile=${2}
+
+if [[ ${srcfile} == "" ]] || [[ ${distfile} == "" ]] ; then
 	echo "Usage: cp scrfile dstfile"
 	exit
 fi
 
-if [ -f "${distfile}" ] ; then # file is exist
-	echo "copy distnation file is exist!"
+if [[ -f ${distfile}/${srcfile} ]] ; then # file does exist
+	echo "Copy destination file does exist!"
 	echo -n "Update ${distfile}? Yes/no >"
 	read buf
 
-	if [ "${buf}" == "Yes" -o "${buf}" == "yes" -o "${buf}" == "Y" -o "${buf}" == "y" ] ; then
-		cp "${op}" "${srcfile}" "${distfile}"
+	if [[ ${buf,,} =~ ^y(es)?$ ]] ; then
+		copy
 	fi
 else
-	cp "${op}" "${srcfile}" "${distfile}"
+	copy
 fi
